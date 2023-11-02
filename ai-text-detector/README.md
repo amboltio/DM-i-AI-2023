@@ -10,11 +10,11 @@ You will receive the 1956 strings as a list of strings. You should return a list
 
 ## Evaluation
 
-During the week of competition, you will be able to validate your solution against a validation set. The best score your model achieves on the validation set will be displayed on the scoreboard.
+To measure the performance of your model, [accuracy](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) is used. During the week of competition, you will be able to validate your solution against a validation set consisting of 1133 different strings. The best score your model achieves on the validation set will be displayed on the scoreboard.
 
-Your model will be evaluated by accuracy. 
+Once you are ready with your final model, you can submit it **once** and have it evaluated on the 1956 text strings. We encourage you to check your code and API before you submit your final model. You can find the documentation of your API where you can try out your model and verify the prediction. The documentation is by default found at `0.0.0.0:4242/docs`, and then find the prediction endpoint for the use case.
 
-Notice that you can only submit once! We encourage you to validate your code and API before you submit your final model. You can find the documentation of your API where you can try out your model and verify the prediction. The documentation is by default found at `0.0.0.0:4242/docs`, and then find the prediction endpoint for the use case.
+**Note that the request times out after 60 seconds, so make sure your solution can handle 2000 reviews in under 60 seconds.**
 
 After evaluation, your final score will be provided. This score can be seen on the scoreboard shortly after.
 
