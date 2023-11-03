@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<style>
+  * {
+    font-family: monospace;
+  }
+
+  html,
+  body {
+    min-height: 100%;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-size: 14px;
+    background: linear-gradient(180deg, white, #7c7c7c);
+    box-sizing: border-box;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  a {
+    font-weight: bold;
+    color: #b6b6b6;
+    border-radius: 2px;
+    padding: 0 .2em;
+
+    transition: .3s color;
+  }
+
+  a:hover {
+    color: white;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20em;
+    height: 40%;
+  }
+
+  .shell {
+    width: min(70em, 80%);
+    border-radius: 7px;
+    background-color: #0b0014;
+    padding: 1em;
+    box-shadow: 0px 5px 30px -1px rgba(0, 0, 0, 0.4);
+    padding-bottom: 20px;
+    transition: .3s all;
+  }
+
+  .green-mode {
+    color: #41fb30;
+    border-color: #41fb30;
+  }
+
+  .red-mode {
+    color: #FF5F57;
+    border-color: #FF5F57;
+  }
+
+  .yellow-mode {
+    color: #FFBD2E;
+    border-color: #FFBD2E;
+  }
+
+  .shell-content {
+    padding-top: 1em;
+    padding-left: 1em;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+
+    width: 4.5em;
+  }
+
+  .button {
+    border-radius: 50%;
+    width: 13px;
+    height: 13px;
+
+    transition: .1s background-color;
+  }
+
+  .close {
+    background-color: #FF5F57;
+  }
+
+  .minimize {
+    background-color: #FFBD2E;
+  }
+
+  .maximize {
+    background-color: #29C940;
+  }
+
+  .request-output-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .request-output-section {
+    width: 50%;
+    height: 10em;
+    display: flex;
+    align-items: center;
+  }
+
+  .move-left {
+    padding-left: 80%;
+  }
+
+  .hidden {
+    color: transparent !important;
+    border-color: transparent !important;
+    background-color: transparent !important;
+    cursor: default !important;
+  }
+
+  .fade-slow {
+    transition: 1s all !important;
+  }
+
+  .highlighted {
+    color: white;
+  }
+
+  #curl {
+    font-weight: bold;
+    border-radius: 2px;
+    border-width: 1px;
+    border-style: solid;
+    padding: 0 .2em;
+
+    transition: .3s all;
+  }
+
+  #curl:hover,
+  #stop-requests-button:hover {
+    cursor: pointer;
+    color: white;
+    border-color: white;
+  }
+
+  #request-output-marker {
+    transition: .5s all;
+  }
+
+  #request-output {
+    transition: .3s all;
+  }
+
+  #request-output:hover {
+    color: white;
+  }
+
+  #stop-requests-button {
+    color: inherit;
+    border-radius: 3px;
+    border-style: solid;
+    border-color: inherit;
+    border-width: 1px;
+    background-color: transparent;
+    text-transform: uppercase;
+    transition: .3s all;
+  }
+</style>
+
+<body>
+  <div class="container">
+    <section id="shell" class="shell green-mode">
+      <div class="buttons">
+        <div id="close" class="button close"></div>
+        <div id="minimize" class="button minimize"></div>
+        <div id="maximize" class="button maximize"></div>
+      </div>
+      <section class="shell-content">
+        <h1>Your Emily API is running!</h1>
+        <p>To begin, try some of the following:</p>
+        <ul>
+          <li>
+            ↪️ Run <code id="curl">curl http://{{host}}:{{port}}/api</code> to test your API endpoint
+          </li>
+          <li>
+            📄 Visit <a target="_blank" href="/docs">http://{{host}}:{{port}}/docs</a> to review and test the
+            OpenAPI specification
+          </li>
+          <li>
+            💡 Get started with an <a target="_blank" href="https://github.com/amboltio/emily-cli/wiki/Tutorials">Emily tutorial</a>
+            project
+          </li>
+          <br>
+          <br>
+          <li>
+            <div class="request-output-container">
+              <div class="request-output-section">
+                <div id="request-output-marker">></div>
+              </div>
+              <div class="request-output-section">
+                <pre><code id="request-output" class="hidden"></code></pre>
+              </div>
+            </div>
+          </li>
+          <li><button id="stop-requests-button" class="hidden">stop requests</button></li>
+        </ul>
+
+      </section>
+    </section>
+  </div>
+</body>
+
+<script>
+  let updater = undefined
+  let fontMode = 'green-mode'
+
+  const shell = document.getElementById('shell')
+  const curl = document.getElementById('curl')
+  const marker = document.getElementById('request-output-marker')
+  const output = document.getElementById('request-output')
+  const close = document.getElementById('close')
+  const minimize = document.getElementById('minimize')
+  const maximize = document.getElementById('maximize')
+  const stopRequests = document.getElementById('stop-requests-button')
+
+  const delay = (ms) => new Promise((resolve) => setTimeout(() => { resolve() }, ms))
+
+  const updateRequestOutput = async () => {
+    const response = await fetch('/api')
+    const data = await response.json()
+    output.innerHTML = JSON.stringify(data, null, 2)
+  }
+
+  const updateMode = (mode) => {
+    shell.classList.remove(fontMode)
+    shell.classList.add(mode)
+    fontMode = mode
+  }
+
+  curl.addEventListener('click', async () => {
+
+    await updateRequestOutput()
+
+    if (updater) clearInterval(updater)
+    updater = setInterval(updateRequestOutput, 1000)
+
+    output.classList.remove('fade-slow')
+    output.classList.add('highlighted')
+    marker.classList.add('move-left')
+
+    await delay(300)
+    output.classList.remove('hidden')
+    output.classList.add('fade-slow')
+
+    stopRequests.classList.remove('hidden')
+
+    await delay(500)
+    output.classList.remove('highlighted')
+  })
+
+  close.addEventListener('click', () => { updateMode('red-mode') })
+  minimize.addEventListener('click', () => { updateMode('yellow-mode') })
+  maximize.addEventListener('click', () => { updateMode('green-mode') })
+  stopRequests.addEventListener('click', () => {
+    if (updater) clearInterval(updater)
+
+    marker.classList.remove('move-left')
+    stopRequests.classList.add('hidden')
+
+    output.innerHTML = ''
+  })
+
+</script>
+
+</html>
