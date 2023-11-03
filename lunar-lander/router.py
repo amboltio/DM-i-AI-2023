@@ -14,6 +14,9 @@ def predict(request: LunarLanderPredictRequestDto):
     # game_ticks = request.game_ticks
     # lander_chrashed = request.is_terminal
 
+    if request.is_terminal:
+        print("Current game is over, a new game will start with next request!")
+
     # Your moves go here!
     action = int(np.random.randint(4))
 

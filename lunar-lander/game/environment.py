@@ -4,7 +4,7 @@ import gymnasium as gym
 class LunarLanderEnvHandler():
     def __init__(self, render_mode=None) -> None:
         self.env = gym.make(
-            "LunarLander-v2", render_mode=render_mode, enable_wind=True)
+            "LunarLander-v2", render_mode=render_mode)
 
         self._game_ticks = 0
         self._total_reward = 0
