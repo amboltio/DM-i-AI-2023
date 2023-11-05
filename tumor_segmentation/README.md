@@ -115,15 +115,18 @@ Symmetric high sugar consumption around neck and esophagus (spiserør) usually c
 
 ### Control 399
 Uniform high sugar consumption in the bones usually caused by recent chemotherapy.
+
 ![test](data/controls/imgs/control_399.png)
 
 
 ### Control 381
 High sugar consumption in the muscles usually caused by the subject forgetting to fast before the scan.
+
 ![test](data/controls/imgs/control_381.png)
 
 ### Control 398
 High sugar consumption in the intestines usually caused by constipation.
+
 ![test](data/controls/imgs/control_398.png)
 
 
