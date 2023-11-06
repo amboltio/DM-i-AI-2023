@@ -32,7 +32,7 @@ During the week of the competition, you will be able to validate your solution a
 A scaled version of your dice score will be calculated based on the best score among all teams like so:
 
 $$
-dice_{scaled}: \frac{dice_{best} - \max(0, dice-0.2)}{dice_{best}}
+dice_{scaled}: \frac{dice_{best} - \max(0, dice-0.2)}{dice_{best}-0.2}
 $$
 
 The $0.2$ is the approximate dice-score achieved by running the baseline model provided in ```router.py```. This scaling means that you will get a scaled score of $0$ if you do worse than or as good as the baseline model, and a score of $1$ if you have the best model among all teams. 
