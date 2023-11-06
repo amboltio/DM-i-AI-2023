@@ -14,7 +14,9 @@ For extensive information about the game see [Lunar Lander](https://gymnasium.fa
 A landing attempt is considered a success if a `total_reward` of at least 200 points is achieved and at that point the game is terminated. The game is also terminated if the lander chrashes.
 
 ### Scoring
-In the usecase the 10 games will be running consecutively. Your score will be the `total_rewards` of all these games summed up. **If you fail to complete all games a score of -200 will be assigned for each game you don't complete.**
+In the usecase the 10 games will be running consecutively. Your score will be the `total_rewards` of all these games summed up. 
+ 
+If you fail to play all games within the 2 minutes, a score of -200 will be assigned for each game you did not play. This also means that the lowest score we consider for the ranking system is -2000, and that all scores below are assigned a ranked score of 0.
 
 ## Interaction
 You'll receive a LunarLanderPredictRequestDto which contains the following:
