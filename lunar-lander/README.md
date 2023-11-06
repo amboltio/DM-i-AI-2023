@@ -14,10 +14,10 @@ For extensive information about the game see [Lunar Lander](https://gymnasium.fa
 A landing attempt is considered a success if a `total_reward` of at least 200 points is achieved and at that point the game is terminated. The game is also terminated if the lander chrashes.
 
 ### Scoring
-In the usecase the 10 games will be running consecutively. Your score will be the `total_rewards` of all these games summed up.
+In the usecase the 10 games will be running consecutively. Your score will be the `total_rewards` of all these games summed up. **If you fail to complete all games a score of -200 will be assigned for each game you don't complete.**
 
 ## Interaction
-You'll receive a LunarLanderPredictRequestDto which contain the following:
+You'll receive a LunarLanderPredictRequestDto which contains the following:
 ```python
 class LunarLanderPredictRequestDto(BaseModel):
     observation: List[float]
@@ -46,7 +46,7 @@ class LunarLanderPredictResponseDto(BaseModel):
   - 3: fire right orientation engine
 
 ### Game restart
-As previously stated, a new game will start when `is_terminal` is `True`! In this case, your next action will have no effect. However, you must respond with  an action for the game to continue.
+As previously stated, a new game will start when `is_terminal` is `True`! In this case, your next action will have no effect. However, you should respond with an action for the game to continue.
 
 ## Evaluation
 During the competetion you will be able to validate your solution against a validation seed. The best score your model achieve will be displayed on the scoreboard. You have 2 minutes to play all 10 games.  
@@ -54,10 +54,10 @@ During the competetion you will be able to validate your solution against a vali
 Once you have developed your solution, you should submit it for evaluation.  
 **Notice, that you can only submit for evaluation once!** Thus, we encourage you to validate your code and API before submitting the model.
 
-The 10 games for both validation and evaluation are chosen with randomly selected (but fixed) seeds. Therefore, we encourage you not to overfit the system to the validation seeds.
+The 10 games for both validation and evaluation are chosen with randomly selected (fixed) seeds. Therefore, we encourage you not to overfit the system to the validation seeds.
 
 ### Configurations
-The evaluation of the game will run with the following configurations.
+The evaluation of the game will run with the following configurations:
 ```python
 env = gym.make(
     "LunarLander-v2",
