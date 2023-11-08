@@ -7,9 +7,9 @@ In this repository, you will find all the information needed to participate in t
 Below you can find the three use cases for the DM i AI 2023 event. <br>
 Within each use case, you find a description together with a template that can be used to setup an API endpoint. <br> 
 The API endpoint will be used for submission and is required. <a href=" https://emily.ambolt.io/">Emily</a> can help with setting up the API, but you should feel free to set them up on your own. The requirements for the API endpoints are specified in the respective use cases. <br> <br>
-<a href="https://github.com/amboltio/DM-i-AI-2022/tree/main/sentiment-analysis">- Sentiment Analysis TODO CHANGE</a> <br>
-<a href="https://github.com/amboltio/DM-i-AI-2022/tree/main/pig-piglet-detection">- Pig & Piglet Detection TODO CHANGE</a> <br>
-<a href="https://github.com/amboltio/DM-i-AI-2023/tree/main/lunar-lander">- Lunar Lander</a> <br> <br>
+<a href="https://github.com/amboltio/DM-i-AI-2023/tree/main/lunar-lander">- Lunar Lander</a> <br>
+<a href="https://github.com/amboltio/DM-i-AI-2023/tree/main/ai-text-detector">- AI Text Detector</a> <br>
+<a href="https://github.com/amboltio/DM-i-AI-2023/tree/main/tumor-segmentation">- Tumor Segmentation</a> <br> <br>
 
 Clone this GitHub repository to download Emily templates for all three use cases.
 ```
@@ -83,5 +83,3 @@ The following contains the necessary links for creating a virtual machine: <br> 
 **Q: How do I use Emily to deploy my service?**
 
 **A:** Emily can help you with deployment of your service, in most cases you can get around deployment by typing `emily deploy <your-project>`, you will be asked several questions guiding your towards deployment on your server. In <a href="https://emily.ambolt.io/docs/latest/guides/quick-start">this guide</a> you can read more about how to get started using Emily.
-![image](https://github.com/amboltio/DM-i-AI-2023/assets/4179778/6287bf88-8768-40d2-a897-368e23bf7035)
-
