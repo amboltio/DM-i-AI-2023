@@ -74,15 +74,19 @@ When you are ready for submission, <a href="https://emily.ambolt.io/docs/v3.0.5/
 
 
 ## MIP PET
-MIP-PET is short for Maximum-Intensity-Project Positron Emission Tomography. Positron Emission Tomography (PET) is a medical imaging modality often used for diagnosing and monitoring cancer patients. By scanning a person in a PET PET-scanner you obtain a volumetric image, which is an image that has three dimensions. Each pixel value in this 3D image reflects, roughly, how much sugar is consumed in that particular part of the body. Since tumors have a high growth rate, they require a lot sugar and the corresponding pixels thus attain high pixel values the PET scan. Working with 3D images requires a lot of memory, so to reduce the data dimensionality a 2D Maximum Intensity Projected (MIP) can be created by doing a "max"-operation along one dimension:
+MIP-PET is short for Maximum-Intensity-Projected Positron Emission Tomography. Positron Emission Tomography (PET) is a medical imaging modality often used for diagnosing and monitoring cancer patients. By scanning a person in a PET-scanner you obtain a volumetric image, which is an image that has three dimensions. Each pixel value in this 3D image reflects, roughly, how much sugar is consumed in that particular part of the body. Since tumors have a high growth rate, they require a lot sugar, and the corresponding pixels thus attain high pixel values in the PET image. Working with 3D images requires a lot of memory, so to reduce the data dimensionality a 2D Maximum Intensity Projected (MIP) can be created by doing a "max"-operation along one dimension of the PET image:
 
 ```
 mip_pet = np.max(pet,axis=1)
 ```
 
-Intuitively, the MIP operation can be visuallized as shining a light through a semi-transparent body and recording the shadow on the other side. 
+Intuitively, the MIP operation can be visualized as shining a light through a semi-transparent patient and recording the shadow on the other side. 
 
-Note that some areas of the body will have high sugar consumption even though there is no cancer in that particular area. 
+You can read more about PET on [wikipedia](https://en.wikipedia.org/wiki/Positron_emission_tomography).
+
+##Interpreting PET Scans
+
+Note that some areas of the body will have high sugar consumption even if there is no cancer. 
 The following organs have high sugar consumption:
 - Brain
 - Bladder
@@ -91,13 +95,13 @@ The following organs have high sugar consumption:
 - Liver
 
 
-Other factors can lead to high sugar consumption in certain areas:
+Other factors can lead to high sugar consumption in certain areas of the body. some of these factors include:
 - Constipation
 - Forgetting to fast before the scan
 - Recent chemotherapy
-- Being cold
+- Being cold during the scan
 
-Here are a few examples of healthy controls that exhibit tricky sugar consumption which could be misinterpreted as cancer.
+it can therefore be difficult to determine whether an area of high sugar uptake is caused by cancer or something else. Here are a few examples of healthy controls that exhibit tricky sugar consumption which could be misinterpreted as cancer. Also note how the brain, bladder, and kidneys have a high sugar uptake.
 
 ### Control 50
 Symmetric high sugar consumption around neck and esophagus (spiserør) usually caused by the patient being too cold during the scan. 
@@ -105,7 +109,7 @@ Symmetric high sugar consumption around neck and esophagus (spiserør) usually c
 ![test](data/controls/imgs/control_050.png)
 
 ### Control 399
-Uniform high sugar consumption in the bones usually caused by recent chemotherapy.
+Uniform high sugar consumption in the bones usually caused by recent chemotherapy or other treatment.
 
 ![test](data/controls/imgs/control_399.png)
 
@@ -121,4 +125,4 @@ High sugar consumption in the intestines usually caused by constipation.
 ![test](data/controls/imgs/control_398.png)
 
 
-You can read more about PET on [wikipedia](https://en.wikipedia.org/wiki/Positron_emission_tomography)
+
