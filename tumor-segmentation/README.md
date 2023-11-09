@@ -28,15 +28,6 @@ The images have a maximum width of 400 px and a maximum height of 991 pixels. **
 ## Evaluation
 During the week of the competition, you will be able to validate your solution against the validation set. You can do this multiple times, however, **you can only submit to the test/evaluation set once!** The best validation and test score your model achieves will be displayed on the <a href="https://cases.dmiai.dk/teams"> scoreboard</a> . We encourage you to validate your code and API before you submit your final model to evaluation. 
 
-###  Scaled dice score
-A scaled version of your dice score will be calculated based on the best score among all teams like so:
-
-$$
-dice_{scaled}: \frac{\max(0, dice-0.2)}{dice_{best}-0.2}
-$$
-
-The $0.2$ is the approximate dice-score achieved by running the baseline model provided in ```router.py```. This scaling means that you will get a scaled score of $0$ if you do worse than or as good as the baseline model, and a score of $1$ if you have the best model among all teams. 
-
 
 ### Segmentation format
 Your model is expected to return a segmentation in the form of an rgb image with only white (255,255,255) and black (0,0,0) pixels. White pixels indicate tumor areas wheras black pixels indicate healthy areas. The segmentation image should have the same shape as the input MIP-PET image. The python function ```validate_segmentation``` in ```utils.py``` will help you check if the your segmentation is in the correct format.
