@@ -1,7 +1,7 @@
 # Tumor Segmentation
 In this use case, your task is to detect tumors on medical images.
 
-You will be receiving so-called "Whole-body MIP-PET" images of patients with cancer (see SECT for background information on MIP-PET). Your job is to segment the tumorours areas in each patient image, that is, for each pixel in an image, your must determine whether the pixel belongs to a tumor area or a healthy area. You will receive 182 MIP-PET images and ground truth segmentations of patients with cancer (```data/patients```). In addition, you will also receive 426 MIP-PET images of "healthy controls" that have NO cancer (```data/controls```). Your segmentations will be scored via the Sørensen-Dice coefficient which is in the range [0-1] where 1 is the best:
+You will be receiving so-called "Whole-body MIP-PET" images of patients with cancer (see section further down for background information on MIP-PET). Your job is to segment the tumorours areas in each patient image, that is, for each pixel in an image, your must determine whether the pixel belongs to a tumor area or a healthy area. You will receive 182 MIP-PET images and ground truth segmentations of patients with cancer (```data/patients```). In addition, you will also receive 426 MIP-PET images of "healthy controls" that have NO cancer (```data/controls```). Your segmentations will be scored via the Sørensen-Dice coefficient which is in the range [0-1] where 1 is the best:
 
 $$
 dice=\frac{2 \cdot TP }{2 \cdot TP +FP+FN}
