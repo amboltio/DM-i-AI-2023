@@ -1,7 +1,7 @@
 # Tumor Segmentation
 In this use case, your task is to detect tumors on medical images.
 
-You will be receiving so-called "Whole-body MIP-PET" images of patients with cancer (see section further down for background information on MIP-PET). Your job is to segment the tumorours areas in each patient image, that is, for each pixel in an image, your must determine whether the pixel belongs to a tumor area or a healthy area. You will receive 182 MIP-PET images and ground truth segmentations of patients with cancer (```data/patients```). In addition, you will also receive 426 MIP-PET images of "healthy controls" that have NO cancer (```data/controls```). Your segmentations will be scored via the Sørensen-Dice coefficient which is in the range [0-1] where 1 is the best:
+You will be receiving so-called "Whole-body MIP-PET" images of patients with cancer (see section further down for more information on MIP-PET). Your job is to segment the tumorours areas in each patient image, that is, for each pixel in an image, your must determine whether the pixel belongs to a tumor area or a healthy area. You will receive 182 MIP-PET images and ground truth segmentations of patients with cancer (```data/patients```). In addition, you will also receive 426 MIP-PET images of "healthy controls" that have NO cancer (```data/controls```). Your segmentations will be scored via the Sørensen-Dice coefficient which is in the range [0-1], with 1 being the best:
 
 $$
 dice=\frac{2 \cdot TP }{2 \cdot TP +FP+FN}
@@ -14,7 +14,7 @@ $$
 $$
 
 
- See the image below for an illustation of the concept. 
+See the below for an example segmentation prediction and dice score. 
 
 <p align="center">
   <img src="../images/tumor_example1.jpeg" width=500>
@@ -30,7 +30,7 @@ During the week of the competition, you will be able to validate your solution a
 
 
 ## Segmentation format
-Your model is expected to return a segmentation in the form of an rgb image with only white (255,255,255) and black (0,0,0) pixels. White pixels indicate tumor areas wheras black pixels indicate healthy areas. The segmentation image should have the same shape as the input MIP-PET image. The python function ```validate_segmentation``` in ```utils.py``` will help you check if the your segmentation is in the correct format.
+Your model is expected to return a segmentation in the form of an rgb image with only white (255,255,255) and black (0,0,0) pixels. White pixels indicate tumor areas wheras black pixels indicate healthy areas. The segmentation image should have the same shape as the input MIP-PET image. The python function ```validate_segmentation``` in ```utils.py``` will help you check if your segmentation prediction is valid.
 
 ## Baseline model
 We have implemented a simple threshold baseline model in ```router.py``` along with the boilerplate code needed to deploy the model as an endpoint: 
