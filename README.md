@@ -76,7 +76,7 @@ The following contains the necessary links for creating a virtual machine: <br> 
 
 **Q:** What if I have already used my Azure student credits?
 
-**A:** If you have already used your credicts, reach out to us on either <a href="https://discord.gg/QhTt4Me2AQ">discord</a> or on <a href="mailto:DMiAI@ambolt.io">DMiAI@ambolt.io</a> and we will help you out. However, we cannot provide you with GPU servers, so remember to design your solutions such that they can run inference within the time constraints specified for the independent use cases.<br>
+**A:** If you have already used your credicts, reach out to us on <a href="mailto:DMiAI@ambolt.io">DMiAI@ambolt.io</a> and we will help you out. However, we cannot provide you with GPU servers, so remember to design your solutions such that they can run inference within the time constraints specified for the independent use cases.<br>
 **Please note, that we do not provide servers for training!** You are expected to train your models and solutions using your own hardware, Google Colab, etc.
 
 
