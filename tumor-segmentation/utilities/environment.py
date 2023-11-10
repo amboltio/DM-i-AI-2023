@@ -1,4 +1,4 @@
-from pydantic_settings import BaseSettings
+from pydantic import BaseSettings
 from argparse import ArgumentParser
 from utilities.singleton import singleton
 
