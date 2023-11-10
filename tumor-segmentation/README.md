@@ -1,7 +1,7 @@
 # Tumor Segmentation
 In this use case, your task is to detect tumors on medical images.
 
-You will be receiving so-called "Whole-body MIP-PET" images of patients with cancer (see section further down for more information on MIP-PET). Your job is to segment the tumorours areas in each patient image, that is, for each pixel in an image, your must determine whether the pixel belongs to a tumor area or a healthy area. You will receive 182 MIP-PET images and ground truth segmentations of patients with cancer (```data/patients```). In addition, you will also receive 426 MIP-PET images of "healthy controls" that have NO cancer (```data/controls```). Your segmentations will be scored via the [Sørensen-Dice coefficient](https://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient) which is in the range [0-1], with 1 being the best:
+You will be receiving so-called "Whole-body MIP-PET" images of patients with cancer (see the [MIP-PET section](#mip-pet) for more information). Your job is to segment the tumorours areas in each patient image, i.e. for each pixel in an image, your must determine whether the pixel belongs to a tumor area or a healthy area. You will receive 182 MIP-PET images and ground truth segmentations of patients with cancer (```data/patients```). In addition, you will also receive 426 MIP-PET images of "healthy controls" that have NO cancer (```data/controls```). Your segmentations will be scored via the [Sørensen-Dice coefficient](https://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient) which is in the range [0-1], with 1 being the best:
 
 $$
 dice=\frac{2 \cdot TP }{2 \cdot TP +FP+FN}
@@ -70,7 +70,7 @@ You can add new packages to the Python environment by adding the names of the pa
 When you are ready for submission, <a href="https://emily.ambolt.io/docs/v3.0.5/guides/deploy-your-api">click here</a> for instructions on how to deploy with Emily. Then, head over to the <a href="https://cases.dmiai.dk/tumor-segmentation">Submission Form</a> and submit your model by providing the host address for your API and the API key we have provided to you. Make sure that you have tested your connection to the API before you submit!<br>
 
 
-## MIP PET
+## MIP-PET
 MIP-PET is short for Maximum-Intensity-Projected Positron Emission Tomography. Positron Emission Tomography (PET) is a medical imaging modality often used for diagnosing and monitoring cancer patients. By scanning a person in a PET-scanner you obtain a volumetric image, which is an image that has three dimensions. Each pixel value in this 3D image reflects, roughly, how much sugar is consumed in that particular part of the body. Since tumors have a high growth rate, they require a lot sugar, and the corresponding pixels thus attain high pixel values in the PET image. Working with 3D images requires a lot of memory, so to reduce the data dimensionality a 2D Maximum Intensity Projected (MIP) can be created by doing a "max"-operation along one dimension of the PET image:
 
 ```
@@ -81,7 +81,7 @@ Intuitively, the MIP operation on PET images can be imagined visually as shining
 
 You can read more about PET on [wikipedia](https://en.wikipedia.org/wiki/Positron_emission_tomography).
 
-## Interpreting PET Scans
+## Interpreting MIP-PET
 
 Note that some areas of the body will have high sugar consumption even if there is no cancer. 
 The following organs have high sugar consumption:
