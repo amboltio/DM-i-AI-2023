@@ -23,7 +23,7 @@ Emily can assist you with developing the required API endpoints for the use case
 The use cases have been built on top of the <a href="https://fastapi.tiangolo.com/">FastAPI</a> framework, and can be used to specify endpoints in every use case.
 
 <h2>Discord Channel</h2>
-Come hang out and talk to other competitors of the event on our Discord channel. Discuss the use cases with each other or get in touch with the organizers, to solve issues or questions that may arise during the competition. <a href="https://discord.gg/QhTt4Me2AQ">Join here!</a> <br>
+Come hang out and talk to other competitors of the event on our Discord channel. Discuss the use cases with each other or get in touch with the organizers, to solve issues or questions that may arise during the competition. <a href="https://discord.gg/dQJFBAN3">Join here!</a> <br>
 
 <h2>Getting started without emily</h2>
 
