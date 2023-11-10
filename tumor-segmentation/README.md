@@ -77,7 +77,7 @@ MIP-PET is short for Maximum-Intensity-Projected Positron Emission Tomography. P
 mip_pet = np.max(pet,axis=1)
 ```
 
-Intuitively, the MIP operation can be visualized as shining a light through a semi-transparent patient and recording the shadow on the other side. 
+Intuitively, the MIP operation on PET images can be imagined visually as shining a light through a semi-transparent patient and recording the shadow on the other side (the patient opacity is determined by the sugar consumption).  
 
 You can read more about PET on [wikipedia](https://en.wikipedia.org/wiki/Positron_emission_tomography).
 
@@ -91,10 +91,10 @@ The following organs have high sugar consumption:
 - Hear
 - Liver
 
-Other factors can lead to high sugar consumption in certain areas of the body. Some of these factors include:
+Some patient factors can lead to increased sugar consumption in parts of the body. Common factors are:
 - Constipation
 - Forgetting to fast before the scan
-- Recent chemotherapy
+- Recent chemotherapy or surgery
 - Being cold during the scan
 
 Consequently, it can be difficult to determine whether an area of high sugar uptake is caused by cancer or something else. Here are a few examples of healthy controls that exhibit tricky sugar consumption which could be misinterpreted as cancer. Also note how the brain, bladder, and kidneys almost always have a high sugar uptake.
