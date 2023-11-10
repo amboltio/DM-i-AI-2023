@@ -97,7 +97,7 @@ Some patient factors can lead to increased sugar consumption in parts of the bod
 - Recent chemotherapy or surgery
 - Being cold during the scan
 
-Consequently, it can be difficult to determine whether an area of high sugar uptake is caused by cancer or something else. Here are a few examples of healthy controls that exhibit tricky sugar consumption which could be misinterpreted as cancer. Also note how the brain, bladder, and kidneys almost always have a high sugar uptake.
+Consequently, it can be difficult to determine whether an area of high sugar uptake is caused by cancer or something else. Here are a few examples of healthy controls that exhibit tricky sugar consumption which could be misinterpreted as cancer. Also note how the brain, bladder, heart, and kidneys almost always have a high sugar uptake.
 
 
 <table>
